@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_h1"
+            android:text="View log category:"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/logType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/title"
+            android:layout_alignBottom="@+id/title"
+            android:layout_alignParentEnd="true"
+            android:background="@null"
+            android:entries="@array/log_type"
+            android:theme="@style/CustomSpinner" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_p"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/top"
+        android:text="Loading..."
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp" />
+
+    <RelativeLayout
+        android:id="@+id/manualButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/subtitle"
+        android:layout_marginHorizontal="16dp">
+
+        <Button
+            android:id="@+id/manualAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/manualView"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/dark_green"
+            android:text="Manual Add"
+            android:textColor="@color/white" />
+
+        <View
+            android:id="@+id/manualView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/manualDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/manualView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/red"
+            android:text="Manual Delete"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/otherButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/manualButtons"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/deleteLogs"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/refresh"
+            android:backgroundTint="@color/red"
+            android:text="Delete logs"
+            android:textColor="@color/white" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/refresh"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/deleteLogs"
+            android:layout_alignBottom="@id/deleteLogs"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/round_min"
+            android:backgroundTint="@color/black"
+            android:theme="@style/LottieFix"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/refresh" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/noLogs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/otherButtons"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-5dp"
+        android:fontFamily="@font/poppins_h1"
+        android:gravity="center"
+        android:text="No pending items!"
+        android:textSize="25sp" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/otherButtons"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-5dp">
+
+        <LinearLayout
+            android:id="@+id/logsContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" />
+
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

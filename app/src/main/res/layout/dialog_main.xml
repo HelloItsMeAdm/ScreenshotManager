@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round"
+    android:backgroundTint="@color/dark_gray">
+
+    <RelativeLayout
+        android:id="@+id/navbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="15dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imageView"
+            android:fontFamily="@font/poppins_h1"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/green_checkmark" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/previewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/preview"
+        android:layout_alignTop="@id/preview"
+        android:layout_alignEnd="@id/preview"
+        android:layout_alignBottom="@id/preview"
+        android:fontFamily="@font/poppins_p"
+        android:gravity="center"
+        android:text="Loading..."
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/preview"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/navbar"
+        android:layout_alignBottom="@+id/buttons"
+        android:layout_marginStart="20dp" />
+
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/preview"
+        android:layout_alignTop="@id/preview"
+        android:layout_alignEnd="@id/preview"
+        android:layout_alignBottom="@id/preview"
+        android:scaleX=".4"
+        android:scaleY=".4"
+        android:src="@drawable/white_play"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/navbar"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="15dp"
+        android:layout_toEndOf="@id/preview">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/quater"
+            style="@style/CustomButton"
+            android:text="Delete after 15 minutes." />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/day"
+            style="@style/CustomButton"
+            android:layout_below="@id/quater"
+            android:text="Delete after 3 days." />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/never"
+            style="@style/CustomButton"
+            android:layout_below="@id/day"
+            android:text="Don't delete" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/now"
+            style="@style/CustomButton"
+            android:layout_below="@id/never"
+            android:backgroundTint="@color/red"
+            android:text="Delete now" />
+
+        <!--<androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pushbullet"
+            style="@style/CustomButton"
+            android:layout_below="@id/never"
+            android:backgroundTint="#5e5e5e"
+            android:clickable="false"
+            android:text="Send to PushBullet" />-->
+
+    </RelativeLayout>
+</RelativeLayout>

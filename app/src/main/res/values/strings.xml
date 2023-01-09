@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ScreenshotManager</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">Show Pending List from ScreenshotManager</string>
+</resources>
